@@ -1,32 +1,38 @@
 #!/usr/bin/python3
-
-import argparse
+"""
+Takes an argument 2 strings
+"""
 import sys
 import os
 import markdown
+"""
+Markdown
 
-def convert_markdown_to_html(markdown_file, output_file):
-    with open(markdown_file, 'r') as md_file:
-        md_content = md_file.read()
-        html_content = markdown.markdown(md_content)
-        with open(output_file, 'w') as html_file:
-            html_file.write(html_content)
+    Arguments:
+    First argument is the name of the Markdown file
+    Second argument is the output file name
 
-def main():
-    parser = argparse.ArgumentParser(description='Convert Markdown to HTML')
-    parser.add_argument('markdown_file', type=str, help='Input Markdown file')
-    parser.add_argument('output_file', type=str, help='Output HTML file')
-    args = parser.parse_args()
+    Return:
+    If the number of arguments is less than 2: print in STDERR Usage: ./markdown2html.py README.md README.html and exit 1
+    If the Markdown file doesn’t exist: print in STDER Missing <filename> and exit 1
+    Otherwise, print nothing and exit 0
+"""
 
-    markdown_file = args.markdown_file
-    output_file = args.output_file
+if len(sys.argv) < 3:
+    print("Usage: ./markdown2html.py README.md README.html", file=sys.stderr)
+    sys.exit(1)
 
-    if not os.path.exists(markdown_file):
-        sys.stderr.write(f"Missing {markdown_file}\n")
-        sys.exit(1)
+md_file = sys.argv[1]
+html_file = sys.argv[2]
 
-    convert_markdown_to_html(markdown_file, output_file)
-    sys.exit(0)
+if not os.path.exists(md_file):
+    print(f"Missing {md_file}", file=sys.stderr)
+    sys.exit(1)
 
-if __name__ == '__main__':
-    main()
+with open(md_file, 'r') as f:
+    markdown_text = f.read()
+
+html_text = markdown.markdown(markdown_text)
+
+with open(html_file, 'w') as f:
+    f.write(html_text)
