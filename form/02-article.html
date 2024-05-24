@@ -147,22 +147,40 @@
               <label for="comment">Add a comment:</label>
               <textarea id="comment" name="comment" rows="4" cols="50"></textarea>
               <button type="submit">Submit</button>
+              
               <!-- First Fieldset -->
-              <fieldset>
-                <legend class="visually-hidden">Your personal information</legend>
-                <div class="form-group col-1-2"></div>
-                <div class="form-group col-1-2"></div>
-                <div class="form-group col-2-3"></div>
-              </fieldset>
+              <fieldset class="visually-hidden">
+            <legend>Your personal information</legend>
+            <div class="form-group col-1-2">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name">
+            </div>
+            <div class="form-group col-1-2">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email">
+            </div>
+            <div class="form-group col-2-3">
+                <label for="phone">Phone</label>
+                <input type="tel" id="phone" name="phone">
+            </div>
+        </fieldset>
 
-    <!-- Second Fieldset -->
-              <fieldset>
-                <legend class="visually-hidden">Your comment</legend>
-                <div class="form-group col-2-3"></div>
-                <div class="form-group col-2-3"></div>
-                <div class="form-group"></div>
-              </fieldset>
-            </form>
+        <!-- Your comment -->
+        <fieldset class="visually-hidden">
+            <legend>Your comment</legend>
+            <div class="form-group col-2-3">
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" name="subject">
+            </div>
+            <div class="form-group col-2-3">
+                <label for="message">Message</label>
+                <textarea id="message" name="message"></textarea>
+            </div>
+            <div class="form-group">
+                <button type="submit">Submit</button>
+            </div>
+        </fieldset>
+    </form>
           </div>
         </div>
       </div>
