@@ -1,10 +1,8 @@
-// 103-sort_strings.scss
-
 // Define the list to sort
-$list_to_sort: john anna zoe kim felicia carrie;
+$list_to_sort: john, anna, zoe, kim, felicia, carrie;
 
-// Sort the list using Sass list functions
+// Sort the list
 $list_sorted: sort($list_to_sort);
 
-// Output the sorted list to debug
+// Output the sorted list in debug mode
 @debug $list_sorted;
