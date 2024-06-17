@@ -1,0 +1,18 @@
+// 9-extend_list.scss
+
+// Base styles for .info, .success, and .warning
+.info {
+  font-size: 12px;
+}
+
+// Extending .info styles for .success
+.success {
+  @extend .info;
+  color: #00FF00;
+}
+
+// Extending .info styles for .warning
+.warning {
+  @extend .info;
+  color: #FF0000;
+}
