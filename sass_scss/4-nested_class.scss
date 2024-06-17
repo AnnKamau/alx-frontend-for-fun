@@ -1,0 +1,9 @@
+// Apply text color to elements inside body tags
+body {
+  color: #3D3D3D;
+
+  // Apply text color to elements of class .red inside body tags
+  .red {
+    color: #FF0000;
+  }
+}
